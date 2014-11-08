@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Playlist = require('./playlist.model');
+// require('./scraper.js');
 
 // Get list of playlists
 exports.index = function(req, res) {
@@ -20,6 +21,17 @@ exports.show = function(req, res) {
     return res.json(playlist);
   });
 };
+//Scrapes a playlist
+exports.scrape = function(req, res){
+  //pass the show, start date, end date to scrape playlist
+  //get params
+  console.log("req")
+  console.log(req.query)
+  console.log(req.params)
+  // console.log("res")
+  // console.log(res.params)
+  // // scrapePlaylist()
+}
 
 // Creates a new playlist in the DB.
 exports.create = function(req, res) {
