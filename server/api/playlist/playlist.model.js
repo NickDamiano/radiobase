@@ -21,7 +21,8 @@ var PlaylistSchema = new Schema({
             programWebsite: String,
             programDJs: Array,
             programGenres: Array,
-            originalAirDate: Date
+            originalAirDate: Date,
+            airDateYear: Number
         },
         songs: Array
 });

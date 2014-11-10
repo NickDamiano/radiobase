@@ -2,15 +2,23 @@
 
 var _ = require('lodash');
 var Playlist = require('./playlist.model');
-// require('./scraper.js');
+var Scraper = require('../../../lib/scraper.js');
 
 // Get list of playlists
 exports.index = function(req, res) {
-  console.log("happening???");
   Playlist.find(function (err, playlists) {
     if(err) { return handleError(res, err); }
     return res.json(200, playlists);
   });
+};
+//testing with strongerthandirt
+exports.getPlaylists = function(req, res) {
+  var showName = req.params.showname.replace(/-/g, " ");
+  Playlist.find( { "programInformation.programName": showName}).sort({"programInformation.originalAirDate": -1}).exec(function (err, playlists) {
+    if(err) { return handleError(res, err); }
+    if(!playlists) { return res.send(404); }
+    return res.json(playlists);
+  })
 };
 
 // Get a single playlist
@@ -25,13 +33,29 @@ exports.show = function(req, res) {
 exports.scrape = function(req, res){
   //pass the show, start date, end date to scrape playlist
   //get params
-  console.log("req")
-  console.log(req.query)
-  console.log(req.params)
-  // console.log("res")
-  // console.log(res.params)
-  // // scrapePlaylist()
+  var sdate = req.query.sdate;
+  var edate = req.query.edate;
+  var show  = req.query.show;
+  show = show.replace(/-/g, ' ')
+  console.log('SHOW IS ', show)
+  Playlist.find(function (err, playlists) {
+    if(err) { return handleError(res, err); }
+    return res.json(200, playlists);
+  });
+  // Playlist.find(
 }
+
+//Gets playlists by show
+// exports.showByYear = function(req, res){
+  //find by year and show name
+//   Playlist.find({req.params.year: , function (err, playlist) {
+//     if(err) { return handleError(res, err); }
+//     if(!playlist) { return res.send(404); }
+//     return res.json(playlist);
+//   });
+// }
+//after the above, the playlists would be loaded under buttons by year
+//maybe the above call gets the playlist date, show, 
 
 // Creates a new playlist in the DB.
 exports.create = function(req, res) {

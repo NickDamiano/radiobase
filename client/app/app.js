@@ -2,6 +2,7 @@
 
 angular.module('radiobase10App', [
   'ngCookies',
+  'ngRoute',
   'ngResource',
   'ngSanitize',
   'btford.socket-io',
@@ -10,7 +11,7 @@ angular.module('radiobase10App', [
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
-      .otherwise('/');
+      .otherwise('/home');
 
     $locationProvider.html5Mode(true);
   });
