@@ -21,6 +21,10 @@ exports.getPlaylists = function(req, res) {
   })
 };
 
+// Station.findById(req.params.id, function (err, station) {
+//     if (err) { return handleError(res, err); }
+//     if(!station) { return res.send(404); }
+
 // Get a single playlist
 exports.show = function(req, res) {
   Playlist.findById(req.params.id, function (err, playlist) {
@@ -44,16 +48,26 @@ exports.scrape = function(req, res){
   });
   // Playlist.find(
 }
+exports.show = function(req, res){
+  console.log('FUCKING DO SOMETHING');
+  Playlist.find({_id:ObjectId(req.params.id)}, function (err, playlist){
+    console.log(req.params.id, "PARAMS");
+    if(err) {return handleError(res, err); }
+    if(!playlist) { return res.send(404); }
+    console.log(playlist);
+    console.log('playlist logged above');
+    return res.json(playlist);
 
-//Gets playlists by show
-// exports.showByYear = function(req, res){
-  //find by year and show name
-//   Playlist.find({req.params.year: , function (err, playlist) {
+  })
+}
+// exports.show = function(req, res){
+//   Playlist.find({_id:ObjectId(req.params.id)} , function (err, playlist) {
 //     if(err) { return handleError(res, err); }
 //     if(!playlist) { return res.send(404); }
+//     console.log(playlist);
 //     return res.json(playlist);
-//   });
-// }
+//   };
+// });
 //after the above, the playlists would be loaded under buttons by year
 //maybe the above call gets the playlist date, show, 
 
