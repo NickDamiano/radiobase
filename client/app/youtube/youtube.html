@@ -5,12 +5,11 @@
   &nbsp;
 </div>
 <div ng-repeat="song in songs" class="col-md-4 video-box text-center">
+
 	<div class="embed-responsive embed-responsive-4by3">
-  		<iframe class="embed-responsive-item" src="//www.youtube.com/embed/"+{{$song.youtubeId}}></iframe>
+  		<iframe class="embed-responsive-item" ng-src="{{setUrl(song.youtubeId)}}"></iframe>
 	</div>
-	
-<!-- 	<iframe width="400" height="250" src="//www.youtube.com/embed/aE_CVWMWK74" frameborder="0" allowfullscreen></iframe>
- -->	<p>Artist: {{song.artist}}</p>
+ 	<p>Artist: {{song.artist}}</p>
 	<p>Title: {{song.title}}</p>
 	<p>Album: {{song.album}}</p>
 	<a href="#" class="btn btn-primary" role="button">Add</a>
