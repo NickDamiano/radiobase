@@ -3,6 +3,8 @@
 var _ = require('lodash');
 var Playlist = require('./playlist.model');
 var Scraper = require('../../../lib/scraper.js');
+var ObjectId=require('mongodb').ObjectID;
+
 
 // Get list of playlists
 exports.index = function(req, res) {
@@ -26,13 +28,13 @@ exports.getPlaylists = function(req, res) {
 //     if(!station) { return res.send(404); }
 
 // Get a single playlist
-exports.show = function(req, res) {
-  Playlist.findById(req.params.id, function (err, playlist) {
-    if(err) { return handleError(res, err); }
-    if(!playlist) { return res.send(404); }
-    return res.json(playlist);
-  });
-};
+// exports.show = function(req, res) {
+//   Playlist.findById(req.params.id, function (err, playlist) {
+//     if(err) { return handleError(res, err); }
+//     if(!playlist) { return res.send(404); }
+//     return res.json(playlist);
+//   });
+// };
 //Scrapes a playlist
 exports.scrape = function(req, res){
   //pass the show, start date, end date to scrape playlist

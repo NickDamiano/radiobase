@@ -1,3 +1,20 @@
-<div class="col-md-12">
-This is the youtube view.
+<div class="col-md-12 text-center">
+	<h1 class="radiobase-title">{{showTitle}} - {{date | date}}</h1><input ng-model="searchText" value="search">
+</div>
+<div>
+  &nbsp;
+</div>
+<div ng-repeat="song in songs" class="col-md-4 video-box text-center">
+	{{getYoutube(song.title, song.artist)}}
+	<div class="embed-responsive embed-responsive-4by3">
+  		<iframe class="embed-responsive-item" src="//www.youtube.com/embed/"+{{$scope.youtubeId}}></iframe>
+	</div>
+	
+<!-- 	<iframe width="400" height="250" src="//www.youtube.com/embed/aE_CVWMWK74" frameborder="0" allowfullscreen></iframe>
+ -->	<p>Artist: {{song.artist}}</p>
+	<p>Title: {{song.title}}</p>
+	<p>Album: {{song.album}}</p>
+	<a href="#" class="btn btn-primary" role="button">Add</a>
+	<p></p>
+
 </div>
