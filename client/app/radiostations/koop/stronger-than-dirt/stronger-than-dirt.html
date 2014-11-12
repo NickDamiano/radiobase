@@ -11,14 +11,8 @@
 </div>
 </div>
 <br/>
-<!-- <div ng-repeat="list in playlists.$orderBy(-programInformation.originalAirDate,reverse)">
-	<li>{{list.programInformation.originalAirDate | date }}</li>
-</div>
- -->
-<!--          ng-repeat="entry in filteredEntries = (daily.entries | filter:{ category: 'B'})"
- -->
+
 <div ng-repeat="list in playlists | filter:filterYears" class="text-center">
-<!-- <div ng-repeat="list in playlists" class="text-center"> -->
 	<h4>{{list.programInformation.originalAirDate | date }} </h4>
 	<button type="button" class="btn btn-primary">Create Playlist</button>
 	<button type="button" class="btn btn-primary" ng-click="getVideos(list._id)">View Videos</button>

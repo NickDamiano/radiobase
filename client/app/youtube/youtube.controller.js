@@ -24,19 +24,15 @@ angular.module('radiobase10App')
       return convertedUrl;
     };
 
-    // $scope.setUrl = function(){
-    //     return  $sce.trustAsResourceUrl('http://www.youtube.com/embed' + this.youtubeId);
-    //     // var aux =  $sce.trustAsResourceUrl('//www.youtube.com/embed/' + yUrl);
-    //     // console.log('???????',aux);
-    // };
+    $scope.filterYoutube = function(song){
+          return (song.youtubeId != undefined);
+        };
 
 
     $scope.setUrl = function(yUrl){
         var url = 'http://www.youtube.com/embed/' + yUrl;
         console.log('url',url);
         return  $sce.trustAsResourceUrl(url);
-        // var aux =  $sce.trustAsResourceUrl('//www.youtube.com/embed/' + yUrl);
-        // console.log('???????',aux);
     };
 
 });

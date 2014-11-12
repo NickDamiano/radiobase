@@ -1,10 +1,10 @@
 <div class="col-md-12 text-center">
-	<h1 class="radiobase-title">{{showTitle}} - {{date | date}}</h1><input ng-model="searchText" value="search">
+	<h1 class="radiobase-title">{{showTitle}} - {{date | date}}</h1>
 </div>
 <div>
   &nbsp;
 </div>
-<div ng-repeat="song in songs" class="col-md-4 video-box text-center">
+<div ng-repeat="song in songs | filter:filterYoutube" class="col-md-4 video-box text-center">
 
 	<div class="embed-responsive embed-responsive-4by3">
   		<iframe class="embed-responsive-item" ng-src="{{setUrl(song.youtubeId)}}"></iframe>
