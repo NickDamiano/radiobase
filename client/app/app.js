@@ -14,4 +14,15 @@ angular.module('radiobase10App', [
       .otherwise('/home');
 
     $locationProvider.html5Mode(true);
-  });
+  }).
+  controller('mainCtrl', ['$scope', '$http', function($scope, $http){
+    $scope.getSpotify = function(){
+      $http.get('/api/spotify/login').
+      success(function(data){
+        console.log(data);
+      }).
+      error(function(data) {
+        console.log('error data log', data);
+      });
+    };
+  }]);
