@@ -10,6 +10,7 @@ angular.module('radiobase10App')
             $scope.songs = data[0].songs;
             $scope.date = data[0].programInformation.originalAirDate;
             $scope.showTitle = data[0].programInformation.programName;
+            $scope.youtubeId = $scope.songs[0].youtubeId;
             console.log($scope.showTitle, 'SHOW TITLE');
             console.log(data);
             console.log($scope.songs, 'scope songs');
@@ -28,11 +29,13 @@ angular.module('radiobase10App')
           return (song.youtubeId != undefined);
         };
 
-
     $scope.setUrl = function(yUrl){
         var url = 'http://www.youtube.com/embed/' + yUrl;
         console.log('url',url);
         return  $sce.trustAsResourceUrl(url);
     };
+    $scope.setYoutubeId = function(youtubeId){
+      $scope.youtubeId = youtubeId;
+    }
 
 });
