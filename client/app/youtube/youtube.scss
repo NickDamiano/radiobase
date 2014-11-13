@@ -5,3 +5,28 @@
 	margin:0px;
 	border-bottom: solid
 }
+.youtube-title{
+	text-align:right;
+	margin-right:4em;
+	margin-top:55px;
+}
+.boxy{
+	height: 400px;
+	width: 400px;
+	float:right;
+	border:solid;
+	margin-right:4em;
+}
+
+.song-list{
+	text-align:left;
+}
+
+#boxy-content {
+	width:80%; padding-left:20%;
+}
+
+#sidebar-songs {
+	position:fixed; top:0; left:0; width:20%; height:100%; background:white; overflow:auto; margin-top:55px;
+	border-right:solid; text-align:left !important;
+}

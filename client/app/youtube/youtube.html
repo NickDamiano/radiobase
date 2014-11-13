@@ -1,18 +1,19 @@
 <div class="col-md-12 text-center">
-	<h1 class="radiobase-title">{{showTitle}} - {{date | date}}</h1>
+	<h1 class="youtube-title">{{showTitle}} - {{date | date}}</h1>
 </div>
 <div>
   &nbsp;
 </div>
-<div ng-repeat="song in songs | filter:filterYoutube" class="col-md-4 video-box text-center">
 
-	<div class="embed-responsive embed-responsive-4by3">
-  		<iframe class="embed-responsive-item" ng-src="{{setUrl(song.youtubeId)}}"></iframe>
+<div id="sidebar-songs" class="btn-group-vertical" role="group">
+	<div>
+		<div ng-repeat="song in songs | filter:filterYoutube" >
+		 <button type="button" class="btn btn-link">
+		 	<div style="text-align:left">
+			 	<span style="color:black">Title:</span> {{song.title}}<br>
+			 	<span style="color:black"> Artist: </span> {{song.artist}} </button>
+			 </div>
+		</div>
 	</div>
- 	<p>Artist: {{song.artist}}</p>
-	<p>Title: {{song.title}}</p>
-	<p>Album: {{song.album}}</p>
-	<a href="#" class="btn btn-primary" role="button">Add</a>
-	<p></p>
-
 </div>
+<aside id="boxy-content" class='boxy'></aside>
