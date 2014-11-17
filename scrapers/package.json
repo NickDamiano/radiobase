@@ -1,0 +1,23 @@
+{
+  "name": "RadioBase",
+  "version": "0.0.1",
+  "dscription": "Hub for Independent Radio",
+  "main": "server.js",
+  "author": "Nick Damiano",
+  "dependencies": {
+    "body-parser": "~1.5.2",
+    "bower": "^1.3.1",
+    "express": "~4.7.2",
+    "http-server": "^0.6.1",
+    "karma": "^0.10",
+    "kew": "^0.5.0-alpha.1",
+    "method-override": "~2.1.2",
+    "mongodb": "1.3.23",
+    "mongoose": "~3.6.2",
+    "morgan": "~1.2.2",
+    "protractor": "^0.6.1",
+    "q": "^1.1.1",
+    "shelljs": "^0.2.6",
+    "sleep": "^1.1.8"
+  }
+}

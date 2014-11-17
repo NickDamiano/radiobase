@@ -11,6 +11,7 @@ angular.module('radiobase10App')
             $scope.date = data[0].programInformation.originalAirDate;
             $scope.showTitle = data[0].programInformation.programName;
             $scope.youtubeId = $scope.songs[0].youtubeId;
+            $scope.bio = $scope.songs[0].biography;
             console.log($scope.showTitle, 'SHOW TITLE');
             console.log(data);
             console.log($scope.songs, 'scope songs');
@@ -34,8 +35,10 @@ angular.module('radiobase10App')
         console.log('url',url);
         return  $sce.trustAsResourceUrl(url);
     };
-    $scope.setYoutubeId = function(youtubeId){
-      $scope.youtubeId = youtubeId;
+    $scope.setYoutubeId = function(song){
+      $scope.youtubeId = song.youtubeId;
+      $scope.bio = song.biography;
+      console.log("song from youtube id", song);
     }
 
 });

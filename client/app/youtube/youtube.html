@@ -1,5 +1,7 @@
 <div class="col-md-12 text-center">
-	<h1 class="youtube-title">{{showTitle}} - {{date | date}}</h1>
+	<a href="http://localhost:9000/radiostations/koop/shows/stronger-than-dirt" style="float:right">  Back</a>
+	<h5 class="youtube-title">{{showTitle}} - {{date | date}}  
+	</h5>
 </div>
 <div>
   &nbsp;
@@ -8,7 +10,7 @@
 <div id="sidebar-songs" class="btn-group-vertical" role="group">
 	<div>
 		<div ng-repeat="song in songs | filter:filterYoutube" >
-		 <button ng-click="setYoutubeId(song.youtubeId)" type="button" class="btn btn-link">
+		 <button ng-click="setYoutubeId(song)" type="button" class="btn btn-link">
 		 	<div style="text-align:left">
 			 	<span style="color:black">Title:</span> {{song.title}}<br>
 			 	<span style="color:black"> Artist: </span> {{song.artist}} </button>
@@ -18,5 +20,8 @@
 </div>
 <div id="boxy-content" class="embed-responsive embed-responsive-16by9">
   		<iframe class="embed-responsive-item" ng-src="{{setUrl(youtubeId)}}"></iframe>
-  		
 </div>
+<div>
+	<p class="biography">Biography: {{bio}}</p>
+</div>
+
